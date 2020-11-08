@@ -2,6 +2,5 @@
 
 It's Authorization app works with database(sql server).
 
-![Sign up page](https://imgur.com/a/gewafJT.png)
-![](https://imgur.com/a/VdZkB08.png)
-![](https://imgur.com/a/B7jje02.png)
+![Sign up page](https://i.imgur.com/1lozgne.png)
+![](https://i.imgur.com/EU2VSMq.png)
