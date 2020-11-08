@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
@@ -17,17 +19,17 @@ public class DatabaseHandler extends Configs {
 
         return dbConnection;
     }
-    public void signUpUser(String firstName, String lastName, String userName, String password, String gender){
+    public void signUpUser(User user){
         String insert = "INSERT INTO " + Const.USER_TABLE + "(" + Const.USERS_FIRSTNAME + "," +Const.USERS_LASTNAME
                 + "," + Const.USERS_LOGIN + "," + Const.USERS_PASS + "," + Const.USERS_GENDER + ")"
                 + "VALUES(?,?,?,?,?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1, firstName);
-            prSt.setString(2, lastName);
-            prSt.setString(3, userName);
-            prSt.setString(4, password);
-            prSt.setString(5, gender);
+            prSt.setString(1, user.getFirstName());
+            prSt.setString(2, user.getLastName());
+            prSt.setString(3, user.getUserName());
+            prSt.setString(4, user.getPassword());
+            prSt.setString(5, user.getGender());
 
             prSt.executeUpdate();
         } catch (SQLException throwables) {
@@ -35,5 +37,24 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    public ResultSet getUser(User user){
+        ResultSet resSet = null;
+
+        String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE "
+                + Const.USERS_LOGIN + " = ? AND " + Const.USERS_PASS + " = ?";
+
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, user.getUserName());
+            prSt.setString(2, user.getPassword());
+
+            resSet = prSt.executeQuery();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resSet;
     }
 }
