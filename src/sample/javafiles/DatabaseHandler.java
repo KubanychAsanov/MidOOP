@@ -1,7 +1,5 @@
 package sample.javafiles;
 
-import sample.javafiles.Configs;
-import sample.javafiles.Const;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +10,7 @@ import java.sql.ResultSet;
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
-    public Connection getDbConnection() throws ClassNotFoundException, SQLException{
+    public Connection getDbConnection() throws ClassNotFoundException, SQLException {
         String connectionString = "jdbc:sqlserver://" + dbHost + "; databaseName = " + dbName;
 
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);

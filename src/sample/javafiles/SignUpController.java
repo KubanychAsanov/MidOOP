@@ -1,10 +1,12 @@
 package sample.javafiles;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import sample.javafiles.DatabaseHandler;
+import javafx.stage.Stage;
 
 public class SignUpController {
 
@@ -26,12 +28,29 @@ public class SignUpController {
     private RadioButton checkBoxMale;
 
     @FXML
-    private RadioButton checkBoxFemale;
+    private Button toAuthButton;
 
 
 
     @FXML
     void initialize() {
+        toAuthButton.setOnAction(actionEvent -> {
+            signUpButton.getScene().getWindow().hide();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/sample/views/sample.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        });
         signUpButton.setOnAction(actionEvent -> {
             signUpNewUser();
         });
@@ -44,7 +63,7 @@ public class SignUpController {
         String lastName = signUpLastname.getText();
         String userName = login_field.getText();
         String password = password_field.getText();
-        String gender = "";
+        String gender;
         if (checkBoxMale.isSelected())
             gender = "Мужской";
         else

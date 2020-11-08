@@ -46,5 +46,10 @@
                 <Font name="Garuda Bold" size="38.0" />
             </font>
         </Label>
+      <Button fx:id="toAuthButton" layoutX="542.0" layoutY="21.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="134.0" style="-fx-background-color: f39C63;" text="Авторизация" textFill="WHITE">
+         <font>
+            <Font name="Garuda Bold" size="13.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
