@@ -5,6 +5,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -32,8 +33,11 @@
                         <Font size="17.0" />
                     </font>
                 </PasswordField>
-            <RadioButton fx:id="checkBoxMale" layoutX="220.0" layoutY="209.0" mnemonicParsing="false" text="Мужчина" />
-            <RadioButton fx:id="checkBoxFemale" layoutX="392.0" layoutY="209.0" mnemonicParsing="false" text="Женщина" />
+            <RadioButton fx:id="checkBoxMale" layoutX="220.0" layoutY="209.0" mnemonicParsing="false" selected="true" text="Мужчина">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="checkBoxFemale" layoutX="392.0" layoutY="209.0" mnemonicParsing="false" text="Женщина" toggleGroup="$gender" />
                 <Button fx:id="signUpButton" layoutX="264.0" layoutY="251.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="174.0" style="-fx-background-color: #2E3348;" text="Зарегистрироваться" textFill="WHITE">
                     <font>
                         <Font name="Garuda Bold" size="13.0" />

@@ -11,19 +11,19 @@
     <children>
         <AnchorPane layoutY="100.0" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: #fff;">
          <children>
-            <ImageView fx:id="home_img" fitHeight="150.0" fitWidth="200.0" layoutX="275.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="home_img" fitHeight="150.0" fitWidth="200.0" layoutX="275.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/kompkuba.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="274.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello by Kuba" >
+            <Text layoutX="274.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello by Kuba">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
          </children>
         </AnchorPane>
-        <Label layoutX="267.0" text="Asanov" textAlignment="CENTER" textFill="WHITE" >
+        <Label layoutX="267.0" text="Asanov" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Garuda Bold" size="52.0" />
             </font>
