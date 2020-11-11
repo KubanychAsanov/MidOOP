@@ -1,6 +1,8 @@
 package sample.javafiles;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -70,6 +72,19 @@ public class Controller {
 
         if (count >= 1){
             openNewScene("/sample/views/home.fxml");
+            try{
+                File file = new File("visitings.txt");
+
+                if (!file.exists())
+                    file.createNewFile();
+                PrintWriter pw = new PrintWriter(file);
+                pw.println(login_field.getText());
+                pw.println(password_field.getText());
+                pw.close();
+            } catch (IOException e){
+                System.out.println(e);
+            }
+
         }else {
             Shake userLoginAnim = new Shake(login_field);
             Shake userPassAnim = new Shake(password_field);
